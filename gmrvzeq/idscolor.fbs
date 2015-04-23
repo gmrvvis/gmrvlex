@@ -1,0 +1,9 @@
+namespace zeq.gmrv;
+
+table Request
+{
+  eventLow:ulong;
+  eventHigh:ulong;
+}
+
+root_type Request;
