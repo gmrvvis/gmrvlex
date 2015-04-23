@@ -1,9 +1,21 @@
 namespace zeq.gmrv;
 
-table Request
-{
-  eventLow:ulong;
-  eventHigh:ulong;
+struct Color {
+  r:ubyte;
+  g:ubyte;
+  b:ubyte;
+  a:ubyte;
 }
 
-root_type Request;
+struct IdColor
+{
+  id:uint
+  color:Color
+}
+
+table IdColorSet
+{
+  idcolor:[IdColor]
+}
+
+root_type IdColorSet;
