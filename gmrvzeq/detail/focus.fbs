@@ -1,0 +1,6 @@
+namespace zeq.gmrv;
+
+table FocusedIDs
+{
+  ids:[uint];
+}

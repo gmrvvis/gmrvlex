@@ -1,31 +1,43 @@
 
 #include "gmrvzeq.h"
 
+#include <gmrvzeq/focus_zeq_generated.h>
+#include <gmrvzeq/focus_generated.h>
+
+#include <zeq/event.h>
+#include <zeq/vocabulary.h>
+
+#include <cassert>
+
 namespace zeq
 {
 
   namespace gmrv
   {
-
-    ::zeq::Event serializeIDsColors( const data::IDColor& colors )
+    Event serializeFocusedIDs( const std::vector< unsigned int >& ids )
     {
-      ::zeq::Event event( EVENT_IDCOLOR );
+      zeq::Event event( EVENT_FOCUSEDIDS );
       flatbuffers::FlatBufferBuilder& fbb = event.getFBB();
-      auto imageData = fbb.CreateVector( image.getDataPtr(),
-                                         image.getSizeInBytes( ));
 
-      ImageJPEGBuilder builder( fbb );
-      builder.add_data( imageData );
+      auto serializedIds = fbb.CreateVector( ids.data( ), ids.size( ));
 
-      fbb.Finish( builder.Finish() );
+      CreateFocusedIDs( fbb, serializedIds );
+
       return event;
     }
 
-    data::IDColor* deserializeIDsColors( const ::zeq::Event& event )
+    std::vector< unsigned int > deserializeFocusedIDs( const Event& event )
     {
+      flatbuffers::Vector< uint32_t >* in =
+          (flatbuffers::Vector< uint32_t >*)event.getData( );
 
+      std::vector< unsigned int > out( in->Length( ));
+      for ( unsigned int i = 0; i < in->Length( ); i++ )
+      {
+        out[ i ] = in->Get( i );
+      }
+
+      return out;
     }
-
-
   }
 }

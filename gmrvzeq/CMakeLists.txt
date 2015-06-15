@@ -24,7 +24,7 @@ function(flatbuffers_generate_c_headers Name)
 endfunction()
 
 flatbuffers_generate_c_headers(GMRVZEQ_FBS
-  ./idscolor.fbs
+  detail/focus.fbs
 )
 
 message(STATUS "Headers to generate: " ${GMRVZEQ_FBS_ZEQ_OUTPUTS})
