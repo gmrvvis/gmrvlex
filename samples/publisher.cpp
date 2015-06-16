@@ -4,9 +4,21 @@
 #include <lunchbox/uri.h>
 
 #include <gmrvzeq.h>
+#include <ctime>
 
+#define NUM_SELECTIONS 100
 
-#define NUM_SELECTIONS 10000
+void delay( unsigned int delay_ )
+{
+  std::clock_t starTime = std::clock( );
+  bool endTime = false;
+
+  while( !endTime )
+  {
+    endTime = (( std::clock( ) - starTime ) * 1000 / CLOCKS_PER_SEC ) >= delay_;
+  }
+
+}
 
 int main( int argc, char * argv[] )
 {
@@ -24,6 +36,7 @@ int main( int argc, char * argv[] )
     data.push_back( i );
     publisher.publish( zeq::gmrv::serializeFocusedIDs( data ));
     std::cout << "Send FocusedIDs Event" << std::endl;
+    delay( 1000 );
   }
 
   return 0;

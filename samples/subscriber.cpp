@@ -13,7 +13,6 @@
 
 void OnFocusEvent( const zeq::Event& event )
 {
-  std::cout << "Aqui";
   std::vector< unsigned int > in = zeq::gmrv::deserializeFocusedIDs( event );
 
   std::cout << "Recieve focus event contaning: " << std::endl;
