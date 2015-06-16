@@ -12,11 +12,13 @@ namespace zeq
 {
   namespace gmrv
   {
+
     ZEQ_API
     Event serializeFocusedIDs( const std::vector< unsigned int >& ids );
 
     ZEQ_API
     std::vector< unsigned int > deserializeFocusedIDs( const Event& event );
+
   }
 }
 #endif
