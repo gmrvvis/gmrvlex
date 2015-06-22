@@ -1,6 +1,6 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#   GMRVZEQ 
+#   GMRVZEQ
 #   2015 (c) GMRV / Universidad Rey Juan Carlos
 #   gmrv@gmrv.es
 #   www.gmrv.es
@@ -36,6 +36,8 @@ set(VERSION_ABI 1)
 
 # description
 set(GMRVZEQ_DESCRIPTION "Gmrvzeq")
+set(GMRVZEQ_DEPENDENT_LIBRARIES zeq FlatBuffers )
+
 set(COMMON_PROJECT_DOMAIN gmrv.es)
 
 include(Common)
