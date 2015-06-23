@@ -44,7 +44,7 @@ include(FindPackages)
 # library subdirectory
 add_subdirectory(gmrvzeq)
 
-add_subdirectory(samples)
+add_subdirectory(examples)
 
 include(CPackConfig)
 include(DoxygenRule)
