@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <zeq/zeq.h>
-#include <lunchbox/uri.h>
+#include <servus/uri.h>
 
 #include <gmrvzeq.h>
 #include <ctime>
@@ -25,7 +25,7 @@ int main( int argc, char * argv[] )
   if ( argc < 2 )
     return -1;
 
-  lunchbox::URI uri( argv[1] );
+  servus::URI uri( argv[1] );
 
   zeq::Publisher publisher( uri );
 
@@ -36,7 +36,7 @@ int main( int argc, char * argv[] )
     data.push_back( i );
     publisher.publish( zeq::gmrv::serializeFocusedIDs( data ));
     std::cout << "Send FocusedIDs Event" << std::endl;
-    delay( 1000 );
+    delay( 100 );
   }
 
   return 0;

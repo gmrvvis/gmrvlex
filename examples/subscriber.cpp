@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include <zeq/zeq.h>
-#include <lunchbox/uri.h>
+#include <servus/uri.h>
 
 #include <gmrvzeq.h>
 
@@ -30,7 +30,7 @@ int main( int argc, char * argv[] )
   if ( argc < 2 )
     return -1;
 
-  lunchbox::URI uri( argv[1] );
+  servus::URI uri( argv[1] );
 
   zeq::Subscriber subscriber( uri );
   subscriber.registerHandler( zeq::gmrv::EVENT_FOCUSEDIDS,
