@@ -6,8 +6,6 @@
 #include <gmrvzeq.h>
 
 #include <functional>
-#include <boost/bind.hpp>
-
 
 #define NUM_SELECTIONS 10000
 
@@ -34,7 +32,7 @@ int main( int argc, char * argv[] )
 
   zeq::Subscriber subscriber( uri );
   subscriber.registerHandler( zeq::gmrv::EVENT_FOCUSEDIDS,
-      boost::bind( OnFocusEvent, _1 ));
+      std::bind( OnFocusEvent, _1 ));
 
 
   while ( true )
