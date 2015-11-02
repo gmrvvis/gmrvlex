@@ -1,0 +1,53 @@
+stages:
+ - build
+
+Ubuntu-Required-Deps:
+ stage: build
+ script:
+  - export JAMBS_TARGETS="zeq"
+  - bash .gitlab-ci.sh
+ tags:
+  - ubuntu
+
+Ubuntu-Subproject:
+ stage: build
+ script:
+  - bash .gitlab-ci.sh
+ tags:
+  - ubuntu
+
+OSX-Required-Deps:
+ stage: build
+ script:
+  - export JAMBS_TARGETS="zeq"
+  - export CMAKE_OSX_ARCHITECTURES=x86_64
+  - bash .gitlab-ci.sh
+ tags:
+  - osx
+
+OSX-Subproject:
+ stage: build
+ script:
+  - export CMAKE_OSX_ARCHITECTURES=x86_64
+  - bash .gitlab-ci.sh
+ tags:
+  - osx
+
+Win7-VS12-x64-Required-Deps:
+ stage: build
+ script:
+  - set JAMBS_TARGETS=zeq
+  - set BUILD_GENERATOR=Visual Studio 12 Win64
+  - set PATH=%PATH%;"c:\\Program Files (x86)\\Git\\bin"
+  - bash.exe --login .gitlab-ci.sh
+ tags:
+  - win7
+
+Win7-VS12-x64-Subproject:
+ stage: build
+ script:
+  - set BUILD_GENERATOR=Visual Studio 12 Win64
+  - set PATH=%PATH%;"c:\\Program Files (x86)\\Git\\bin"
+  - bash.exe --login .gitlab-ci.sh
+ tags:
+  - win7
