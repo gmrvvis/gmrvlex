@@ -32,7 +32,7 @@ int main( int argc, char * argv[] )
 
   zeq::Subscriber subscriber( uri );
   subscriber.registerHandler( zeq::gmrv::EVENT_FOCUSEDIDS,
-      std::bind( OnFocusEvent, _1 ));
+      std::bind( OnFocusEvent, std::placeholders::_1 ));
 
 
   while ( true )
