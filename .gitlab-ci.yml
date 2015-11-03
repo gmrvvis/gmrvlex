@@ -36,6 +36,7 @@ OSX-Subproject:
 Win7-VS12-x64-Required-Deps:
  stage: build
  script:
+  - call %ENVFILESDIR%\zeromq-4.0.4.bat
   - set JAMBS_TARGETS=zeq
   - set BUILD_GENERATOR=Visual Studio 12 Win64
   - set PATH=%PATH%;"c:\\Program Files (x86)\\Git\\bin"
