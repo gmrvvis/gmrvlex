@@ -15,7 +15,8 @@ void delay( unsigned int delay_ )
 
   while( !endTime )
   {
-    endTime = (( std::clock( ) - starTime ) * 1000 / CLOCKS_PER_SEC ) >= delay_;
+    endTime = (( unsigned int ) (( std::clock( ) - starTime ) * 1000 /
+                                 CLOCKS_PER_SEC )) >= delay_;
   }
 
 }
