@@ -1,0 +1,11 @@
+
+set(GMRVZEQ_VERSION 0.1)
+set(GMRVZEQ_REPO_URL git@gitlab.gmrv.es:nsviz/gmrvzeq.git)
+set(GMRVZEQ_DEPENDS REQUIRED zeq)
+set(GMRVZEQ_OPTIONAL ON)
+set(GMRVZEQ_BOOST_COMPONENTS "unit_test_framework")
+set(GMRVZEQ_DEB_DEPENDS )
+
+set(GMRVZEQ_REPO_TAG master)
+set(GMRVZEQ_FORCE_BUILD ON)
+set(GMRVZEQ_SOURCE ${CMAKE_SOURCE_DIR})
