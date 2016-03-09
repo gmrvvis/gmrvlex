@@ -20,10 +20,10 @@ namespace zeq
       PLAY = 0,
       PAUSE,
       STOP,
-      REPEAT,
-      NO_REPEAT,
-      RESTART,
-      FINISH
+      ENABLE_LOOP,
+      DISABLE_LOOP,
+      BEGIN,
+      END
     };
 
 
