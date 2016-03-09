@@ -1,0 +1,6 @@
+namespace zeq.gmrv;
+
+table PlaybackOp
+{
+  op:uint;
+}

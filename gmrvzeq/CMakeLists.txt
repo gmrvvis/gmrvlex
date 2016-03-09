@@ -2,12 +2,14 @@ source_group(\\ FILES CMakeLists.txt)
 
 flatbuffers_generate_c_headers(GMRVZEQ_FBS
   detail/focus.fbs
+  detail/playbackoperation.fbs
 )
 
 set(GMRVZEQ_PUBLIC_HEADERS
   ${COMMON_INCLUDES}
   ${GMRVZEQ_FBS_ZEQ_OUTPUTS}
   gmrvzeq.h
+  enums.h
 )
 
 set(GMRVZEQ_HEADERS )
