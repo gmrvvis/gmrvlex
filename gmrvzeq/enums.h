@@ -7,8 +7,8 @@
  *					Do not distribute without further notice.
  */
 
-#ifndef __ENUMS_H__
-#define __ENUMS_H__
+#ifndef __ZEQ_GMRV_ENUMS_H__
+#define __ZEQ_GMRV_ENUMS_H__
 
 namespace zeq
 {
@@ -30,6 +30,4 @@ namespace zeq
   }
 }
 
-
-
-#endif /* __ENUMS_H__ */
+#endif /* __ZEQ_GMRV_ENUMS_H__ */

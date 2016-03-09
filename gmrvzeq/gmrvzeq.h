@@ -26,7 +26,7 @@ namespace zeq
     Event serializePlaybackOperation( PlaybackOperation playbackOp );
 
     ZEQ_API
-    PlaybackOperation serializePlaybackOperation( const Event& event );
+    PlaybackOperation deserializePlaybackOperation( const Event& event );
 
   }
 }

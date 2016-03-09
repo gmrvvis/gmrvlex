@@ -57,7 +57,7 @@ namespace zeq
 
       PlaybackOpBuilder builder( fbb );
 
-      builder.add_op(( unsigned int ) playbackOp );
+      builder.add_op( ( unsigned int ) playbackOp );
 
       fbb.Finish( builder.Finish( ));
 
@@ -65,13 +65,13 @@ namespace zeq
     }
 
 
-    PlaybackOperation serializePlaybackOperation( const Event& event )
+    PlaybackOperation deserializePlaybackOperation( const Event& event )
     {
       PlaybackOperation result;
 
       auto data = flatbuffers::GetRoot< PlaybackOp >( event.getData( ));
 
-      result = (PlaybackOperation) data->op( );
+      result = ( PlaybackOperation ) data->op( );
 
       return result;
     }
