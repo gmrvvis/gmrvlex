@@ -1,2 +1,2 @@
 # -*- mode: cmake -*-
-git_subproject(zeq https://github.com/HBPVIS/zeq.git 36fd5d6)
+git_subproject(ZeroEQ https://github.com/HBPVIS/ZeroEQ.git b79a43a)

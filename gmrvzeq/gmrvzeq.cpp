@@ -1,22 +1,16 @@
 
 #include "gmrvzeq.h"
 
-#include <gmrvzeq/focus_generated.h>
-
-
-#include <zeq/event.h>
-#include <zeq/vocabulary.h>
-
 #include <iostream>
 
-namespace zeq
+namespace zeroeq
 {
   namespace gmrv
   {
 
-    Event serializeFocusedIDs( const std::vector< unsigned int >& ids )
+    zeroeq::FBEvent serializeFocusedIDs( const std::vector< unsigned int >& ids )
     {
-      zeq::Event event( EVENT_FOCUSEDIDS );
+      zeroeq::FBEvent event( EVENT_FOCUSEDIDS );
 
       flatbuffers::FlatBufferBuilder& fbb = event.getFBB();
 
@@ -32,7 +26,7 @@ namespace zeq
     }
 
 
-    std::vector< unsigned int > deserializeFocusedIDs( const Event& event )
+    std::vector< unsigned int > deserializeFocusedIDs( const zeroeq::FBEvent& event )
     {
 
       auto data = flatbuffers::GetRoot<FocusedIDs>( event.getData( ));

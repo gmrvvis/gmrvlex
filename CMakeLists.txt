@@ -6,8 +6,11 @@
 #   www.gmrv.es
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-cmake_minimum_required(VERSION 2.8)
-project(gmrvzeq)
+cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+
+# gmrvzeq project and version
+project(gmrvzeq VERSION 0.1.0)
+ set(gmrvzeq_VERSION_ABI 1)
 
 # Disable in source building
 if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
@@ -27,25 +30,17 @@ endif()
 
 include(GitExternal)
 
-# gmrvzeq version
-set(LAST_RELEASE 0.0.0)
-set(VERSION_MAJOR "0")
-set(VERSION_MINOR "1")
-set(VERSION_PATCH "0")
-set(VERSION_ABI 1)
-
 include(Common)
 
 # description
 set(GMRVZEQ_DESCRIPTION "Gmrvzeq")
 set(COMMON_PROJECT_DOMAIN gmrv.es)
 
+common_find_package(ZeroEQ REQUIRED)
+common_find_package(FlatBuffers REQUIRED)
+common_find_package_post()
 
-common_package(zeq REQUIRED)
-common_package(FlatBuffers REQUIRED)
-common_package_post()
-
-list(APPEND GMRVZEQ_DEPENDENT_LIBRARIES zeq FlatBuffers)
+list(APPEND GMRVZEQ_DEPENDENT_LIBRARIES ZeroEQ FlatBuffers)
 
 add_subdirectory(gmrvzeq)
 add_subdirectory(examples)

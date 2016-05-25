@@ -1,23 +1,22 @@
 #ifndef GMRV_ZEQ_VOCABULARY_H
 #define GMRV_ZEQ_VOCABULARY_H
 
-#include <zeq/types.h>
-#include <zeq/api.h>
+#include <zeroeq/zeroeq.h>
 
-#include <gmrvzeq/focus_zeq_generated.h>
+#include <gmrvzeq/focus_zeroeq_generated.h>
 
 #include <vector>
 
-namespace zeq
+namespace zeroeq
 {
   namespace gmrv
   {
 
-    ZEQ_API
-    Event serializeFocusedIDs( const std::vector< unsigned int >& ids );
+    ZEROEQ_API
+    FBEvent serializeFocusedIDs( const std::vector< unsigned int >& ids );
 
-    ZEQ_API
-    std::vector< unsigned int > deserializeFocusedIDs( const Event& event );
+    ZEROEQ_API
+    std::vector< unsigned int > deserializeFocusedIDs( const FBEvent& event );
 
   }
 }
