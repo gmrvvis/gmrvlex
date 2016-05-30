@@ -37,10 +37,10 @@ set(GMRVZEQ_DESCRIPTION "Gmrvzeq")
 set(COMMON_PROJECT_DOMAIN gmrv.es)
 
 common_find_package(ZeroEQ REQUIRED)
-common_find_package(FlatBuffers REQUIRED)
+common_find_package(ZeroBuf REQUIRED)
 common_find_package_post()
 
-list(APPEND GMRVZEQ_DEPENDENT_LIBRARIES ZeroEQ FlatBuffers)
+list(APPEND GMRVZEQ_DEPENDENT_LIBRARIES ZeroEQ ZeroBuf )
 
 add_subdirectory(gmrvzeq)
 add_subdirectory(examples)

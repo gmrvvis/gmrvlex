@@ -1,29 +1,32 @@
 source_group(\\ FILES CMakeLists.txt)
 
-flatbuffers_generate_c_headers(GMRVZEQ_FBS
-  detail/focus.fbs
-)
+list(APPEND CPPCHECK_EXTRA_ARGS
+  --suppress=*:${CMAKE_CURRENT_BINARY_DIR}/*_generated.h)
+
+include(zerobufGenerateCxx)
+set(__outdir ${PROJECT_BINARY_DIR}/include/gmrvzeq)
+
+set(GMRVZEQ_DATA_DIR ${__outdir})
+set(GMRVZEQ_DATA_FBS focus.fbs)
+
+zerobuf_generate_cxx(GMRVZEQ_DATA ${GMRVZEQ_DATA_DIR} ${GMRVZEQ_DATA_FBS})
 
 set(GMRVZEQ_PUBLIC_HEADERS
   ${COMMON_INCLUDES}
-  ${GMRVZEQ_FBS_ZEQ_OUTPUTS}
-  gmrvzeq.h
+  ${GMRVZEQ_DATA_HEADERS}
 )
 
 set(GMRVZEQ_HEADERS )
 
 set(GMRVZEQ_SOURCES
   ${COMMON_SOURCES}
-  gmrvzeq.cpp
+  ${GMRVZEQ_DATA_SOURCES}
 )
-set(GMRVZEQ_LINK_LIBRARIES ZeroEQ FlatBuffers)
+set(GMRVZEQ_LINK_LIBRARIES ZeroEQ ZeroBuf)
 
 if(MSVC)
   list(APPEND GMRVZEQ_LINK_LIBRARIES Ws2_32)
 endif()
-
-list(APPEND CPPCHECK_EXTRA_ARGS
-  --suppress=*:${CMAKE_CURRENT_BINARY_DIR}/*_generated.h)
 
 set( PROJECT_INCLUDE_NAME gmrvzeq )
 add_definitions(-DZEQ_SHARED)

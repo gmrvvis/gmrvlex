@@ -1,10 +1,11 @@
 #include <iostream>
 
-#include <zeq/zeq.h>
+#include <zeroeq/zeroeq.h>
 #include <servus/uri.h>
 
-#include <gmrvzeq.h>
 #include <ctime>
+
+#include <gmrvzeq/focus.h>
 
 #define NUM_SELECTIONS 100
 
@@ -21,22 +22,19 @@ void delay( unsigned int delay_ )
 
 }
 
-int main( int argc, char * argv[] )
+int main( int /*argc*/, char ** /*argv[]*/ )
 {
-  if ( argc < 2 )
-    return -1;
 
-  servus::URI uri( argv[1] );
+  zeroeq::Publisher publisher;
 
-  zeq::Publisher publisher( uri );
-
-  std::vector< unsigned int > data;
+  zeroeq::gmrv::FocusedIDs focusIDs;
 
   for ( unsigned int i = 0; i < NUM_SELECTIONS; i++ )
   {
-    data.push_back( i );
-    publisher.publish( zeq::gmrv::serializeFocusedIDs( data ));
-    std::cout << "Send FocusedIDs Event" << std::endl;
+    focusIDs.getIds( ).push_back( i );
+
+    publisher.publish( focusIDs );
+    std::cout << "Sent FocusedIDs Event" << std::endl;
     delay( 100 );
   }
 
