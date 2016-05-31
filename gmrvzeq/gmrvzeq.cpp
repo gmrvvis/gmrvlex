@@ -2,6 +2,7 @@
 #include "gmrvzeq.h"
 
 #include <gmrvzeq/focus_generated.h>
+#include <gmrvzeq/playbackoperation_generated.h>
 
 
 #include <zeq/event.h>
@@ -45,6 +46,34 @@ namespace zeq
       }
 
       return out;
+    }
+
+
+    Event serializePlaybackOperation( PlaybackOperation playbackOp )
+    {
+      zeq::Event event( EVENT_PLAYBACKOP );
+
+      flatbuffers::FlatBufferBuilder& fbb = event.getFBB( );
+
+      PlaybackOpBuilder builder( fbb );
+
+      builder.add_op( ( unsigned int ) playbackOp );
+
+      fbb.Finish( builder.Finish( ));
+
+      return event;
+    }
+
+
+    PlaybackOperation deserializePlaybackOperation( const Event& event )
+    {
+      PlaybackOperation result;
+
+      auto data = flatbuffers::GetRoot< PlaybackOp >( event.getData( ));
+
+      result = ( PlaybackOperation ) data->op( );
+
+      return result;
     }
 
   }
