@@ -5,7 +5,7 @@
 
 #include <functional>
 
-#include <gmrvzeq/focus.h>
+#include <gmrvlex/focus.h>
 
 #define NUM_SELECTIONS 10000
 

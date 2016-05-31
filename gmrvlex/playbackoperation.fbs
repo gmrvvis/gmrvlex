@@ -1,0 +1,6 @@
+namespace zeroeq.gmrv;
+
+table PlaybackOp
+{
+  op:uint;
+}

@@ -1,6 +1,6 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#   GMRVZEQ
+#   GMRVLEX
 #   2015 (c) GMRV / Universidad Rey Juan Carlos
 #   gmrv@gmrv.es
 #   www.gmrv.es
@@ -8,9 +8,10 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
 
-# gmrvzeq project and version
-project(gmrvzeq VERSION 0.1.0)
- set(gmrvzeq_VERSION_ABI 1)
+# gmrvlex project and version
+project(gmrvlex VERSION 0.1.0)
+set(gmrvlex_VERSION_ABI 1)
+
 
 # Disable in source building
 if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
@@ -33,7 +34,7 @@ include(GitExternal)
 include(Common)
 
 # description
-set(GMRVZEQ_DESCRIPTION "Gmrvzeq")
+set(GMRVLEX_DESCRIPTION "Gmrvlex")
 set(COMMON_PROJECT_DOMAIN gmrv.es)
 
 common_find_package(ZeroEQ REQUIRED)
@@ -42,7 +43,7 @@ common_find_package_post()
 
 list(APPEND GMRVZEQ_DEPENDENT_LIBRARIES ZeroEQ ZeroBuf )
 
-add_subdirectory(gmrvzeq)
+add_subdirectory(gmrvlex)
 add_subdirectory(examples)
 
 include(CPackConfig)
