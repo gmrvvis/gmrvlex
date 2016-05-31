@@ -1,13 +1,13 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #
-#   GMRVZEQ
+#   GMRVLEX
 #   2015 (c) GMRV / Universidad Rey Juan Carlos
 #   gmrv@gmrv.es
 #   www.gmrv.es
 #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 cmake_minimum_required(VERSION 2.8)
-project(gmrvzeq)
+project(gmrvlex)
 
 # Disable in source building
 if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
@@ -27,7 +27,7 @@ endif()
 
 include(GitExternal)
 
-# gmrvzeq version
+# gmrvlex version
 set(LAST_RELEASE 0.0.0)
 set(VERSION_MAJOR "0")
 set(VERSION_MINOR "1")
@@ -37,7 +37,7 @@ set(VERSION_ABI 1)
 include(Common)
 
 # description
-set(GMRVZEQ_DESCRIPTION "Gmrvzeq")
+set(GMRVLEX_DESCRIPTION "Gmrvzeq")
 set(COMMON_PROJECT_DOMAIN gmrv.es)
 
 
@@ -45,9 +45,9 @@ common_package(zeq REQUIRED)
 common_package(FlatBuffers REQUIRED)
 common_package_post()
 
-list(APPEND GMRVZEQ_DEPENDENT_LIBRARIES zeq FlatBuffers)
+list(APPEND GMRVLEX_DEPENDENT_LIBRARIES zeq FlatBuffers)
 
-add_subdirectory(gmrvzeq)
+add_subdirectory(gmrvlex)
 add_subdirectory(examples)
 
 include(CPackConfig)

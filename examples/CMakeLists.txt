@@ -1,21 +1,21 @@
-set( GMRVZEQPUBLISHER_SOURCES
+set( GMRVLEXPUBLISHER_SOURCES
   publisher.cpp
 )
 
-set( GMRVZEQSUBSCRIBER_SOURCES
+set( GMRVLEXSUBSCRIBER_SOURCES
   subscriber.cpp
 )
 
-include_directories( ../gmrvzeq )
+include_directories( ../gmrvlex )
 
 
-set( GMRVZEQPUBLISHER_LINK_LIBRARIES
-  gmrvzeq
+set( GMRVLEXPUBLISHER_LINK_LIBRARIES
+  gmrvlex
 )
 
-set( GMRVZEQSUBSCRIBER_LINK_LIBRARIES
-  gmrvzeq
+set( GMRVLEXSUBSCRIBER_LINK_LIBRARIES
+  gmrvlex
 )
 
-common_application( gmrvzeqPublisher )
-common_application( gmrvzeqSubscriber )
+common_application( gmrvlexPublisher )
+common_application( gmrvlexSubscriber )

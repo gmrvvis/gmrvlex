@@ -3,7 +3,7 @@
 #include <zeq/zeq.h>
 #include <servus/uri.h>
 
-#include <gmrvzeq.h>
+#include <gmrvlex.h>
 #include <ctime>
 
 #define NUM_SELECTIONS 100

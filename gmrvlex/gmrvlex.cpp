@@ -1,8 +1,8 @@
 
-#include "gmrvzeq.h"
+#include "gmrvlex.h"
 
-#include <gmrvzeq/focus_generated.h>
-#include <gmrvzeq/playbackoperation_generated.h>
+#include <gmrvlex/focus_generated.h>
+#include <gmrvlex/playbackoperation_generated.h>
 
 
 #include <zeq/event.h>

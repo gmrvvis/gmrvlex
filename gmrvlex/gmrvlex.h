@@ -4,10 +4,10 @@
 #include <zeq/types.h>
 #include <zeq/api.h>
 
-#include <gmrvzeq/enums.h>
+#include <gmrvlex/enums.h>
 
-#include <gmrvzeq/focus_zeq_generated.h>
-#include <gmrvzeq/playbackoperation_zeq_generated.h>
+#include <gmrvlex/focus_zeq_generated.h>
+#include <gmrvlex/playbackoperation_zeq_generated.h>
 
 #include <vector>
 
