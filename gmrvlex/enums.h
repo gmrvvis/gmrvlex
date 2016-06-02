@@ -7,10 +7,10 @@
  *					Do not distribute without further notice.
  */
 
-#ifndef __ZEQ_GMRV_ENUMS_H__
-#define __ZEQ_GMRV_ENUMS_H__
+#ifndef __ZEROEQ_GMRV_ENUMS_H__
+#define __ZEROEQ_GMRV_ENUMS_H__
 
-namespace zeq
+namespace zeroeq
 {
   namespace gmrv
   {

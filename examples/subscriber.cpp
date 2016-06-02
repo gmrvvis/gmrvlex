@@ -1,39 +1,40 @@
 #include <iostream>
 
-#include <zeq/zeq.h>
+#include <zeroeq/zeroeq.h>
 #include <servus/uri.h>
-
-#include <gmrvlex.h>
 
 #include <functional>
 
+#include <gmrvlex/focus.h>
+
 #define NUM_SELECTIONS 10000
 
-void OnFocusEvent( const zeq::Event& event )
+zeroeq::gmrv::FocusedIDs receivedIds;
+
+typedef std::shared_ptr< servus::Serializable > SerializablePtr;
+
+void onFocusReceive( )
 {
-  std::vector< unsigned int > in = zeq::gmrv::deserializeFocusedIDs( event );
+  std::cout << "Received focusids: ";
+  zeroeq::gmrv::FocusedIDs::Ids& ids = receivedIds.getIds( );
 
-  std::cout << "Recieve focus event contaning: " << std::endl;
-
-  for ( unsigned int i = 0; i < in.size( ); i++ )
+  for( unsigned int i = 0; i < ids.size( ); ++i )
   {
-    std::cout << in[ i ] << "  ";
+    std::cout << ids[ i ] << " ";
   }
-  std::cout << std::endl;
 
+  std::cout << std::endl;
 }
 
-int main( int argc, char * argv[] )
+int main( int /*argc*/, char ** /*argv[]*/ )
 {
-  if ( argc < 2 )
-    return -1;
 
-  servus::URI uri( argv[1] );
+  std::cout << "Creating subscriber..." << std::endl;
 
-  zeq::Subscriber subscriber( uri );
-  subscriber.registerHandler( zeq::gmrv::EVENT_FOCUSEDIDS,
-      std::bind( OnFocusEvent, std::placeholders::_1 ));
+  zeroeq::Subscriber subscriber;
+  receivedIds.registerDeserializedCallback( [ & ] { onFocusReceive( );} );
 
+  subscriber.subscribe( receivedIds );
 
   while ( true )
   {

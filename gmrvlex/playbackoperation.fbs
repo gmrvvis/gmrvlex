@@ -1,4 +1,4 @@
-namespace zeq.gmrv;
+namespace zeroeq.gmrv;
 
 table PlaybackOp
 {
